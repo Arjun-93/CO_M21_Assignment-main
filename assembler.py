@@ -4,7 +4,8 @@ codelst = []
 for line in stdin:
     if line == '': 
         break
-    x= list(line.split())
+    line1 = line.strip()
+    x= list(line1.split())
     if len(x)!= 0:
         codelst.append(x)
 
