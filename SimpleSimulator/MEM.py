@@ -2,6 +2,7 @@ from sys import stdin
 
 codelst = []
 varDic = {}
+memory_dump =[]
 
 def get_ins(pc):
     n = int(pc,2)
@@ -10,7 +11,7 @@ def get_ins(pc):
     return ins
 def dump():
     count=0
-    for i in codelst:
+    for i in memory_dump:
         count=count+1
         print(i,end="")
     print()

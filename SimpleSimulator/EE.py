@@ -9,6 +9,17 @@ typeD = ["ld","st"]
 typeE = ["jmp","jlt","jgt","je"]
 typeF = ["hlt"]
 
+def invert(num):
+    bin_value = '{0:016b}'.format(num)
+    new_bin = ""
+    for i in bin_value:
+        if i==0:
+            new_bin = new_bin + "1"
+        else:
+            new_bin = new_bin + "0"
+    not_num = int(new_bin,2)
+    return not_num
+
 def insA(ins,op,PC):
     s1 = registers[ins[7:10]]
     s2 = registers[ins[10:13]]
@@ -116,7 +127,8 @@ def insC(ins,op,PC):
     elif op=="not":
         RF.regValue["FLAGS"] =0
         val2 = RF.get_val(s2)
-        new_val2 = not val2
+        # new_val2 = not val2
+        new_val2 = invert(val2)
         RF.regValue[s1] = new_val2
 
     elif op=="cmp":

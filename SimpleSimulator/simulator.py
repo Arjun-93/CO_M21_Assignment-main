@@ -16,6 +16,7 @@ def main():
     
     while not halted:
         ins = MEM.get_ins(get_pc(PC))
+        MEM.memory_dump.append(ins)
         halted, new_PC = EE.execute(ins,PC,halted)
         PC_dump(PC)
         RF.RF_dump()
